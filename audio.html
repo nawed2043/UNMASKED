@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UNMASKED // Sonic Signals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            /* MAXIMUM HD CLARITY: Crystal clear view of Gotham */
+            background: linear-gradient(rgba(13, 17, 23, 0.3), rgba(13, 17, 23, 0.4)), 
+                        url('GOTHAM.jpg');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed; 
+            color: white; 
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Subtler overlay for HD clarity */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.01));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.04; 
+        }
+
+        .gcpd-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 5%; 
+            background: #05070a; 
+            border-bottom: 2px solid #ffc107; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1001; 
+        }
+
+        .logo-box { 
+            border: 2px solid #ffc107; 
+            padding: 5px 15px; 
+            color: #ffc107; 
+            font-family: 'Oswald'; 
+            letter-spacing: 2px; 
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+            padding: 5px 10px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+        .tactic-card { 
+            background: rgba(10, 10, 10, 0.95); 
+            border: 1px solid #444; 
+            padding: 25px; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .btn-gold { 
+            background: #ffc107; 
+            color: #000; 
+            border: none; 
+            font-family: 'Oswald'; 
+            padding: 12px; 
+            cursor: pointer; 
+            transition: 0.2s; 
+            width: 100%; 
+            margin-top: 10px; 
+            text-align: left; 
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .btn-gold:hover { 
+            background: #fff; 
+            transform: translateX(8px); 
+            box-shadow: 0 0 15px #fff;
+        }
+
+        .frequency-label { 
+            font-family: 'Oswald'; 
+            color: #ffc107; 
+            font-size: 0.8rem; 
+            border-bottom: 1px solid #333; 
+            margin-top: 20px; 
+            padding-bottom: 5px; 
+            text-transform: uppercase;
+        }
+        
+        #player { border: 2px solid #ffc107; background: #000; }
+
+        #grounding-zone { 
+            position: relative; 
+            height: 140px; 
+            background: #000; 
+            border: 1px dashed #ffc107; 
+            margin-top: 10px;
+            cursor: crosshair;
+            overflow: hidden;
+        }
+
+        .target {
+            position: absolute;
+            width: 30px; height: 30px;
+            background: #ffc107;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: pulse 0.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <header class="gcpd-header">
+        <div class="logo-box">UNMASKED</div>
+        <nav class="nav-links">
+            <span id="agent-display" style="color: #ffc107; font-family: monospace; font-size: 0.8rem; margin-right: 15px;"></span>
+            <a href="map.html">RETURN TO MAP</a>
+            <a href="checker.html">CLUE SCANNER</a>
+            <a href="breathe.html">BAT PULSE</a>
+            <a href="audio.html" class="active">SONIC SIGNALS</a>
+        </nav>
+    </header>
+
+    <div class="content-wrapper" style="display:grid; grid-template-columns: 350px 1fr; gap:2rem; padding: 40px 5%; max-width: 1500px; margin: auto;">
+        
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="tactic-card">
+                <h3 style="color: #ffc107; font-family: 'Oswald'; margin:0; letter-spacing: 1px;">SIGNAL DIRECTORY</h3>
+                
+                <div class="frequency-label">MEDITATION PROTOCOLS</div>
+                <button class="btn-gold" onclick="switchAudio('kiHoy-ecF3U')">Bat Meditation</button>
+                <button class="btn-gold" onclick="switchAudio('mPZkdNFkNps')">Wayne Manor Rain</button>
+                
+                <div class="frequency-label">PSYCHOLOGICAL INTEL</div>
+                <button class="btn-gold" onclick="switchAudio('8jPQjjsBbIc')">Scarecrow's Fear Science</button>
+                <button class="btn-gold" onclick="switchAudio('z-IR48Mb3W0')">Neural Re-Calibration</button>
+
+                <div class="frequency-label">ANIMATION ARCHIVE</div>
+                <!-- Vetted, high-compatibility IDs provided by Lead Architect -->
+                <button class="btn-gold" onclick="switchAudio('aqz-KE-bpKQ')">Bunny Recovery File</button>
+                <button class="btn-gold" onclick="switchAudio('YE7VzlLtp-4')">Vintage Comic Feed</button>
+            </div>
+
+            <!-- MINI-GAME -->
+            <div class="tactic-card" style="margin-top: 20px;">
+                <h3 style="color: #ffc107; font-family: 'Oswald'; margin:0;">GROUNDING GAME</h3>
+                <p style="font-size: 0.75rem; color: #8a9ba3; margin: 10px 0;">Neutralize the gold anomalies to focus your mind, Detective.</p>
+                <div id="grounding-zone" onclick="spawnTarget()">
+                    <p id="game-msg" style="text-align:center; color:#444; margin-top:55px; font-size:0.8rem; font-family: 'Oswald';"> [ CLICK TO INITIALIZE ] </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN MONITOR -->
+        <div class="main-monitor">
+            <div class="tactic-card">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-family: 'Oswald'; font-size: 0.9rem;">
+                    <span style="color: #ffc107;">● LIVE FEED // DECRYPTED</span>
+                    <span style="color: #8a9ba3;">SIGNAL: STABLE</span>
+                </div>
+                <!-- Initial Video: Rain Protocol -->
+                <iframe id="player" width="100%" height="520" 
+                        src="https://www.youtube.com/embed/mPZkdNFkNps?autoplay=0&mute=1" 
+                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+                <div style="margin-top: 15px; border-left: 3px solid #ffc107; padding: 10px; background: rgba(0,0,0,0.5);">
+                    <p style="font-size: 0.75rem; color: #8a9ba3; font-family: 'Roboto'; margin: 0;">
+                        ALFRED'S LOG: Decryption complete. <span style="color:#ffc107;">Unmute the monitor</span> manually for full immersion, sir.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set Agent ID from LocalStorage
+        const agentName = localStorage.getItem('agentName') || "ROBIN";
+        document.getElementById('agent-display').innerText = "AGENT: " + agentName.toUpperCase();
+
+        function switchAudio(id) {
+            const player = document.getElementById('player');
+            // Adding mute=1 ensures the switch is allowed by all browsers
+            player.src = `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
+        }
+
+        /* GROUNDING GAME LOGIC */
+        function spawnTarget() {
+            const zone = document.getElementById('grounding-zone');
+            const msg = document.getElementById('game-msg');
+            if(msg) msg.style.display = 'none';
+            
+            const existing = zone.querySelector('.target');
+            if(existing) existing.remove();
+
+            const target = document.createElement('div');
+            target.className = 'target';
+            
+            const x = Math.random() * (zone.offsetWidth - 35);
+            const y = Math.random() * (zone.offsetHeight - 35);
+            
+            target.style.left = x + 'px';
+            target.style.top = y + 'px';
+            
+            target.onclick = (e) => {
+                e.stopPropagation();
+                target.remove();
+                spawnTarget(); 
+            };
+            
+            zone.appendChild(target);
+        }
+    </script>
+</body>
+</html>

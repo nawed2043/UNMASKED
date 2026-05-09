@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UNMASKED // Anxiety District</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            /* CRYSTAL CLEAR HD BACKGROUND */
+            background: linear-gradient(rgba(13, 17, 23, 0.3), rgba(13, 17, 23, 0.45)), 
+                        url('GOTHAM.jpg');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed; 
+            color: white; 
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Subtle scanlines for the tech vibe */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.02));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.05; 
+        }
+
+        .gcpd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: #05070a;
+            border-bottom: 2px solid #ffc107;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .logo-box {
+            border: 2px solid #ffc107;
+            padding: 5px 15px;
+            color: #ffc107;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+            margin-left: 20px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            border: 1px solid transparent;
+            padding: 5px 10px;
+        }
+
+        .nav-links a:hover {
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+        .tactic-card {
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid #444;
+            padding: 2.5rem;
+            max-width: 800px;
+            margin: 4rem auto;
+            border-left: 5px solid #ffc107;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .btn-gold {
+            background: #ffc107;
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-family: 'Oswald';
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-gold:hover {
+            background: #fff;
+            box-shadow: 0 0 15px #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="gcpd-header">
+        <div class="logo-box">UNMASKED</div>
+        <nav class="nav-links">
+            <span id="agent-display" style="color: #ffc107; font-family: monospace; font-size: 0.8rem; margin-right: 10px;"></span>
+            <a href="map.html">BACK TO BAT-TERMINAL</a>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="tactic-card">
+            <h2>SECTOR LOG: ANXIETY DISTRICT</h2>
+            <p style="color:#8a9ba3; margin-bottom:1.5rem; font-family: monospace; letter-spacing: 1px;">STATUS: HIGH INTERFERENCE // INTEL: DR. CRANE'S DATA</p>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+                Master Wayne, it appears the fear toxin is causing a bit of a scramble in the surveillance feed. Anxiety is like a shadow that grows too long; it projects threats that haven't even crossed the city limits yet. You are building puzzles faster than the Riddler can solve them. Let's bring the focus back to the present.
+            </p>
+        </div>
+
+        <div class="tactic-card" style="border-left: 5px solid #fff;">
+            <h3>STABILIZATION PROTOCOL: THE 3-3-3 METHOD</h3>
+            <p style="margin: 1rem 0;">If your mind starts to glide out of control, use these three anchors to ground yourself back in Gotham:</p>
+            <ul style="list-style: none; padding-left: 1rem; border-left: 2px solid #ffc107;">
+                <li style="margin-bottom:15px;">[01] VISUAL LOCK: Name 3 objects in your current safe house.</li>
+                <li style="margin-bottom:15px;">[02] AUDIO FEED: Identify 3 distinct sounds from the city streets.</li>
+                <li style="margin-bottom:15px;">[03] MOTOR CHECK: Move 3 different parts of your body—fingers, toes, or shoulders.</li>
+            </ul>
+        </div>
+
+        <div class="tactic-card">
+            <h3>EXTERNAL REINFORCEMENTS</h3>
+            <p style="margin-bottom: 1.5rem;">Even the Dark Knight needs a second opinion sometimes. Professional analysts are standing by to help decode the toxin.</p>
+            <a href="https://www.apa.org/topics/anxiety" target="_blank" class="btn-gold">TAP TO KNOW MORE</a>
+        </div>
+    </div>
+
+    <script>
+        // Set Agent ID from LocalStorage
+        const agentName = localStorage.getItem('agentName') || "ROBIN";
+        document.getElementById('agent-display').innerText = "AGENT: " + agentName.toUpperCase();
+    </script>
+</body>
+</html>

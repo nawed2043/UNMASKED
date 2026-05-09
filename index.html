@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UNMASKED // The Night Calls</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background: url('batman.jpg') no-repeat center center fixed; background-size: cover; margin: 0; overflow: hidden;">
+    
+    <div class="skyline-filter" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(13, 17, 23, 0.65)); position: fixed; width: 100%; height: 100%; z-index: -1;"></div>
+    
+    <div class="content-wrapper" style="display:flex; justify-content:center; align-items:center; min-height:100vh; position: relative; z-index: 1;">
+        <div class="tactic-card" style="width: 100%; max-width: 400px; background: rgba(5, 5, 5, 0.9); border: 2px solid #444; padding: 2rem; box-shadow: 0 0 40px rgba(0,0,0,0.8);">
+            <div style="border: 1px solid #ffc107; padding: 1.5rem;">
+                <!-- Playful Batman Heading -->
+                <h2 style="color: #ffc107; font-family: 'Oswald'; letter-spacing: 2px; margin-bottom: 0.5rem; text-align: center; text-shadow: 0 0 10px rgba(255,193,7,0.3);">EYES ON GOTHAM</h2>
+                
+                <div id="loading-container" style="width:100%; height:4px; background:#222; margin: 1.5rem 0; overflow: hidden;">
+                    <div id="loading-bar" style="width:0%; height:100%; background:#ffc107; box-shadow: 0 0 10px #ffc107;"></div>
+                </div>
+                
+                <!-- Alfred-style Status Message -->
+                <p style="font-size:0.75rem; color:#8a9ba3; margin-bottom:1.5rem; font-family: monospace; text-align: center; letter-spacing: 1px;">ALFRED IS WAITING FOR YOUR CREDENTIALS...</p>
+                
+                <!-- Playful Placeholders -->
+                <input type="text" id="username" placeholder="SECRET IDENTITY" style="width:100%; background:#000; border:1px solid #ffc10733; color:white; padding:1rem; margin-bottom:1rem; font-family: 'Oswald'; outline: none; border-radius: 0;">
+                <input type="password" id="password" placeholder="DECRYPTION CODE" style="width:100%; background:#000; border:1px solid #ffc10733; color:white; padding:1rem; margin-bottom:1.5rem; font-family: 'Oswald'; outline: none; border-radius: 0;">
+                
+                <!-- Playful Button Text -->
+                <button class="btn-gold" onclick="executeLogin()" style="width: 100%; background: #ffc107; color: black; border: none; padding: 1rem; font-family: 'Oswald'; font-weight: bold; cursor: pointer; transition: 0.3s; border-radius: 0; text-transform: uppercase;">
+                    INITIALIZE COWL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function executeLogin() {
+            const user = document.getElementById('username').value;
+            const bar = document.getElementById('loading-bar');
+            
+            // Playful movie-inspired alert
+            if(!user) { alert("Even the Batman needs a name, sir."); return; }
+            
+            bar.style.transition = "width 1.5s ease-in-out";
+            bar.style.width = "100%";
+            setTimeout(() => {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('agentName', user);
+                window.location.href = 'map.html';
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
