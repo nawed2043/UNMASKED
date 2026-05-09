@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNMASKED // The Night is Young</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            /* DIRECT HD BACKGROUND: High-res cinematic Gotham with dark overlay */
             background: linear-gradient(rgba(13, 17, 23, 0.65), rgba(13, 17, 23, 0.75)), 
-                        url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000');
+                        url('GOTHAM.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             margin: 0;
             overflow-x: hidden;
             color: white;
-            font-family: 'Roboto', sans-serif;
         }
 
-        /* Scanline Overlay for HD Depth */
         body::before {
             content: "";
             position: fixed;
@@ -41,7 +39,7 @@
             border-bottom: 2px solid #ffc107;
             position: sticky;
             top: 0;
-            z-index: 1001;
+            z-index: 100;
         }
 
         .logo-box {
@@ -61,25 +59,9 @@
             transition: 0.3s;
             font-size: 0.9rem;
             letter-spacing: 1px;
-            padding: 5px 10px;
         }
 
-        .nav-links a:hover { 
-            color: #ffc107; 
-            text-shadow: 0 0 10px #ffc107; 
-            border: 1px solid #ffc107;
-        }
-
-        /* The Golden Trail - Core Component */
-        .trail-container {
-            position: relative; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 80px; 
-            max-width: 1100px; 
-            margin: auto;
-            padding-bottom: 100px;
-        }
+        .nav-links a:hover { color: #ffc107; text-shadow: 0 0 10px #ffc107; }
 
         .trail-container::before {
             content: '';
@@ -97,7 +79,7 @@
         .district-box {
             position: relative;
             z-index: 1;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 1);
             border: 1px solid #444;
             width: 350px;
             transition: 0.3s ease;
@@ -120,7 +102,6 @@
         .district-box.right { align-self: flex-end; margin-right: 5%; }
         .district-box.left { align-self: flex-start; margin-left: 5%; }
 
-        /* Path connector lines from box to center trail */
         .district-box::after {
             content: '';
             position: absolute;
@@ -128,7 +109,6 @@
             width: 150px;
             height: 2px;
             background: #ffc107;
-            box-shadow: 0 0 10px #ffc107;
         }
         .district-box.left::after { right: -150px; }
         .district-box.right::after { left: -150px; }
@@ -171,99 +151,82 @@
             color: #ff4d4d; 
             font-family: 'Oswald'; 
             cursor: pointer; 
-            padding: 5px 15px;
+            padding: 5px 10px;
             margin-left: 15px;
             transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.8rem;
         }
         .btn-logout:hover { background: #ff4d4d; color: white; }
     </style>
 </head>
 <body>
 
-<header class="gcpd-header">
+   <header class="gcpd-header">
     <div class="logo-box">UNMASKED</div>
     <nav class="nav-links">
         <span id="agent-display" style="color: #ffc107; font-family: monospace; font-size: 0.8rem; margin-right: 10px;"></span>
-        <a href="audio.html">SONIC_SIGNALS</a>
-        <button class="btn-logout" onclick="logout()">EXIT_COWL</button>
+        
+        <a href="checker.html">CLUE SCANNER</a>
+        <a href="breathe.html">BAT-PULSE</a>
+        <a href="audio.html">SONIC SIGNALS</a>
+        <button class="btn-logout" onclick="logout()">EXIT COWL</button>
     </nav>
 </header>
 
-<div class="content-wrapper">
-    <div style="padding: 4rem 0; text-align: center;">
-        <h1 style="font-family: 'Oswald'; letter-spacing: 4px; font-size: 3rem; text-shadow: 0 0 20px rgba(0,0,0,0.5);">GOTHAM IS <span style="color: #ffc107;">QUIET...</span></h1>
-        <p style="color: #ccc; font-family: 'Roboto'; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">
-            Welcome back, <span id="agent-name-span" style="color:#ffc107;"></span>. Select your mission below.
-        </p>
-    </div>
+    <div class="content-wrapper">
+        <div style="padding: 4rem 0; text-align: center;">
+            <h1 style="font-family: 'Oswald'; letter-spacing: 4px; font-size: 3rem; text-shadow: 0 0 20px rgba(0,0,0,0.5);">GOTHAM IS <span style="color: #ffc107;">QUIET...</span></h1>
+            <p style="color: #ccc; font-family: 'Roboto'; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Alfred has prepped the dossier. Select your mission below.</p>
+        </div>
 
-    <div class="trail-container">
-        
-        <!-- Anxiety District -->
-        <div class="district-box left">
-            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=1000" alt="Anxiety">
-            <div style="padding: 1.5rem;">
-                <div class="district-info">
+        <div class="trail-container" style="position: relative; display: flex; flex-direction: column; gap: 80px; max-width: 1100px; margin: auto;">
+            
+             <!-- Anxiety -->
+             <div class="district-box left">
+                <img src="anxiety.jpg" alt="Anxiety">
+                <div style="padding: 1.5rem;">
                     <h3>SCARECROW'S LAB</h3>
-                    <p class="status-text">THREAT: FEAR_TOXIN_DETECTED</p>
+                    <p class="status-text">FEAR TOXIN: DETECTED</p>
                     <a href="anxiety.html" class="btn-enter">NEUTRALIZE</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Depression District -->
-        <div class="district-box right">
-            <img src="https://images.unsplash.com/photo-1444084316824-dc26d6657664?q=80&w=1000" alt="Depression">
-            <div style="padding: 1.5rem;">
-                <div class="district-info">
+            <!-- Depression -->
+            <div class="district-box right">
+                <img src="depression.webp" alt="Depression">
+                <div style="padding: 1.5rem;">
                     <h3>THE FROZEN VAULT</h3>
-                    <p class="status-text">ATMOSPHERE: ABSOLUTE_ZERO</p>
+                    <p class="status-text">VIBE: ABSOLUTE ZERO</p>
                     <a href="depression.html" class="btn-enter">THAW OUT</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Panic District -->
-        <div class="district-box left">
-            <img src="https://images.unsplash.com/photo-1533073356960-72828e3c3303?q=80&w=1000" alt="Panic">
-            <div style="padding: 1.5rem;">
-                <div class="district-info">
+            <!-- Panic -->
+            <div class="district-box left">
+                <img src="panic.webp" alt="Panic">
+                <div style="padding: 1.5rem;">
                     <h3>JOKER'S FUNHOUSE</h3>
-                    <p class="status-text">STATUS: RAPID_HEARTBEAT</p>
+                    <p class="status-text">WHY SO SERIOUS? BREATHE.</p>
                     <a href="panic.html" class="btn-enter">DEACTIVATE</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Trauma District -->
-        <div class="district-box right">
-            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1000" alt="Trauma">
-            <div style="padding: 1.5rem;">
-                <div class="district-info">
+            <!-- Trauma -->
+            <div class="district-box right">
+                <img src="trauma.jpeg" alt="Trauma">
+                <div style="padding: 1.5rem;">
                     <h3>CRIME ALLEY</h3>
-                    <p class="status-text">DATA_RECOVERY: PENDING</p>
+                    <p class="status-text">HISTORY: FRAGMENTED</p>
                     <a href="trauma.html" class="btn-enter">INVESTIGATE</a>
                 </div>
             </div>
+
         </div>
-
     </div>
-</div>
 
-<script>
-    // Load Agent Data
-    const agentName = localStorage.getItem('agentName') || "RECRUIT";
-    document.getElementById('agent-display').innerText = "AGENT: " + agentName.toUpperCase();
-    document.getElementById('agent-name-span').innerText = agentName.toUpperCase();
-
-    // FIXED LOGOUT PROTOCOL: Redirects to login (index.html)
-    function logout() { 
-        localStorage.clear(); 
-        // Renaming your login page to index.html is standard for GitHub Pages
-        window.location.href = 'index.html'; 
-    }
-</script>
+    <script>
+        const agentName = localStorage.getItem('agentName') || "ROBIN";
+        document.getElementById('agent-display').innerText = "AGENT: " + agentName.toUpperCase();
+        function logout() { localStorage.clear(); window.location.href = 'index.html'; }
+    </script>
 </body>
 </html>
